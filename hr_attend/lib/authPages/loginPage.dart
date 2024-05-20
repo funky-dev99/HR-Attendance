@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hr_attend/authPages/signUpPage.dart';
+import 'package:hr_attend/homePage.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -79,7 +80,13 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       //Login Button
                       MaterialButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const HomePage()),
+                          );
+                        },
                         minWidth: 150.0,
                         height: 50.0,
                         color: Colors.black,

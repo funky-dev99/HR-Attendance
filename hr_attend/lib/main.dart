@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:hr_attend/authPages/loginPage.dart';
+import 'package:permission_handler/permission_handler.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Permission.locationWhenInUse.isDenied.then((valueOfPermission)
+  {
+    if(valueOfPermission){
+      Permission.locationWhenInUse.request();
+    }
+  });
   runApp(const MyApp());
 }
 
